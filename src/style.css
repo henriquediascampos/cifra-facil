@@ -1,0 +1,124 @@
+html, body, #root {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    padding: 5px;
+}
+
+div, textarea {
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+/* input */
+.buttons {
+    padding: 8px;
+    /* justify-content: space-between; */
+}
+
+.button {
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 8px;
+}
+
+.text-output {
+    padding: 45px 50px 44px 5px;
+}
+
+.text-input {
+    padding: 0 50px 44px 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+/* output */
+.output {
+    border: 1px solid;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* line */
+
+.line {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3px;   
+}
+
+.cell {
+    max-width: auto;
+    min-width: 15px;
+    min-height:60px;
+}
+
+.box-text {
+    height: 50%;
+    width: 100%;
+    min-width: 100%;
+    max-height: 50%;
+    /* border: 1px solid rgb(228, 137, 137); */
+    font-size: 15px;
+    font-family:"Roboto Mono", "Courier New", Courier, monospace;
+    font-stretch:100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.note {
+    border: 1px solid rgba(195, 195, 195, 0.198);
+    cursor: pointer;
+}
+
+.note:hover {
+    border-color: black;
+} 
+
+.character {
+    /* border: 1px solid rgb(248, 59, 239); */
+}
+
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.75);
+}
