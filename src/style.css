@@ -111,6 +111,8 @@ textarea {
     /* border: 1px solid rgb(248, 59, 239); */
 }
 
+/* dialog */
+
 .dialog {
 	position: fixed;
 	top: 0;
@@ -119,6 +121,28 @@ textarea {
 	bottom: 0;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	background-color: rgba(0,0,0,0.75);
+    align-items: center;
+}
+
+.dialog-body {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 3px;
+    width: 30%;
+}
+
+.dialog-title {
+    background-color: #117599;
+    font-size: 12pt;
+    padding: 4px;
+    font-family: monospace sans-serif;
+}
+
+.content-dialog {
+    padding: 4px;
+    width: 100%;
+    height: 100%;
+
+    background-color: #e4e4e4;
 }

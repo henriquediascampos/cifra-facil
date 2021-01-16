@@ -28,9 +28,8 @@ function DialogSimple({ changeState, title_, html, htmlButtons }) {
 
     return (
         <div id="dialog" className="dialog" >
-            <div>
-                <div className="dialog-title"></div>
-                <h3>{title_ || 'info'}</h3>
+            <div className='dialog-body'>
+                <div className="dialog-title">{title_}</div>
                 <div className="content-dialog">
                     {html}
                 </div>

@@ -5,7 +5,6 @@ import { render } from '@testing-library/react';
 export default function Cell({ cell }) {
 
     function openNoteDialog(e) {
-        // console.log(e.target);
         Dialog("opened","teste", (<p style={{color: "red"}}>patos</p>));
     }
 
