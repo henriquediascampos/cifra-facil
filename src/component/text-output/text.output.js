@@ -6,7 +6,6 @@ export default function TextOutput( { inputLines } ) {
 
     useEffect(() => {
         setLines(inputLines);
-        console.log(inputLines);
     }, [inputLines]);
 
     return (
