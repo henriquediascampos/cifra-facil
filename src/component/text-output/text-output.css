@@ -1,0 +1,9 @@
+
+
+.output {
+    border: 1px solid #757575;;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    flex-wrap: wrap;
+}

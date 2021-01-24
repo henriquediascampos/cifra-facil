@@ -12,14 +12,30 @@ export default function Content() {
     }
 
     function send(params) {
-        const lines = inputText.split("\n");
-        return lines.map(line => line ? line : " ");
+        const lines = inputText.split("\n").map(line => line ? line : " ")
+        let formatLine = [];
+        lines.forEach(line => {
+            formatLine = [...formatLine, lineWhiteSpace(line.length), line]
+        })
+        return formatLine.map(e => "   " + e + "                            " );
+    }
+
+    function lineWhiteSpace(length) {
+        return [...Array(length).keys()].map((i) => " ")
+            .reduce((a, b) => {
+                return a+b
+            }, "");
     }
 
     return (
         <div className="content flex fullscreen column margin-default">
             <Input id="title" class="title" placeholder="Insira um título para a música" textLabel="Título" />
-            <TextInput inputChange={handleReloadOutput} />
+            <div>
+                <TextInput inputChange={handleReloadOutput} />
+            </div>
+            <div id="container">
+            </div>
+
             <TextOutput inputLines={send}/>
         </div>
     )

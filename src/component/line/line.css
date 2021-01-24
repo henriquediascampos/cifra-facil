@@ -1,0 +1,11 @@
+/* line */
+.line {
+    display: flex;
+    flex-direction: row;
+    /* margin-bottom: 3px; */
+    margin: 0;
+}
+
+.line-note {
+    margin: 0;
+}

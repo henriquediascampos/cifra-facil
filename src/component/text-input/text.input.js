@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import './text-input.css'
 
 export default function TextInput({ inputChange }) {
 
-    const [input, setInput] = useState('teste de escrita');
+    const [input, setInput] = useState('teste de escrita \n do porder');
     function handleReloadOutput(a) {
         setInput(a);
     }
@@ -14,9 +15,9 @@ export default function TextInput({ inputChange }) {
 
     return (
         <div className="text-input flex column fullscreen">
-            <label>Letra da música</label>
+            <label className="bold">Letra da música</label>
             <div className="textarea full-height">
-                <textarea onChange={e => handleReloadOutput(e.target.value)} id="textInput" value={input}></textarea>
+                <textarea onChange={e => handleReloadOutput(e.target.value)} id="textInput" value={input} placeholder="Cole aqui a letra da música"></textarea>
             </div>
         </div>
     )
