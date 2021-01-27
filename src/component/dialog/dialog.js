@@ -57,7 +57,7 @@ function DialogSimple({ dialog, changeState }) {
                     {dialog.html}
                 </div>
                 <footer className="footer-dialog">
-                    <div className="flex flex-end margin-default">
+                    <div className="flex row flex-end margin-default">
                         {
                             dialog.buttons ?
                                 dialog.buttons.map((b, index) => setButton(b, index))

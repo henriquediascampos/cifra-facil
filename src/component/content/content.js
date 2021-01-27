@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ButtonPadrao from "../buttonPadrao/buttonPadrao";
 import Input from "../input/Input";
 import TextInput from "../text-input/text.input";
 import TextOutput from "../text-output/text.output";
@@ -37,6 +38,9 @@ export default function Content() {
             </div>
 
             <TextOutput inputLines={send}/>
+            <div className="flex row flex-ed">
+                <ButtonPadrao icon="add" onclick={()=>{}} text='salvar'></ButtonPadrao>
+            </div>
         </div>
     )
 }

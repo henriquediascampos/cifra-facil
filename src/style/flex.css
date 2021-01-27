@@ -36,3 +36,7 @@
 .full-height {
     height: 100%;
 }
+
+.flex-end {
+    align-self: flex-end;
+}

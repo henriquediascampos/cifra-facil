@@ -53,3 +53,13 @@ div, textarea {
 .width-auto {
     min-width: auto;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.dp18 {
+    width: 18px;
+    height: 18px;
+    font-size: 18pt;
+}

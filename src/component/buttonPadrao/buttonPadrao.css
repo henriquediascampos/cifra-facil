@@ -1,0 +1,30 @@
+.button-padrao {
+    margin: 0;
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    width: 88px;
+    height: 34px;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    outline:none;
+    background: linear-gradient(-45deg,#EF5350 0 calc(50% - 10px),#F5F5F5 calc(50% - 10px) calc(50% + 10px),#B71C1C calc(50% + 10px) 100%);
+    background-size: 280% 100%;
+    background-position: 100% 50%;
+    transition: 0.5s all;
+}
+
+.button-padrao:hover,
+.button-padrao:focus {
+    background-position: 0% 50%;
+    transition: 0.5s all;
+}
+
+
+.button-padrao label {
+    font-family: Roboto,Helvetica Neue,sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
