@@ -4,11 +4,11 @@ import './cell.css';
 
 
 export default function Cell({ cell }) {
-    const [cell_] = useState(cell);
+    const [currentNote] = useState(cell);
     const [id] = useState(createUUID());
 
     return (
-        <span id={id} className="cell" >{cell_ ? cell_ : ''}</span>
+        <span id={id} className="cell" >{currentNote ? currentNote.value : ''}</span>
     )
 
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ButtonPadrao from "../buttonPadrao/buttonPadrao";
 import IconButton from "../iconButton/iconButton";
 import './inputNote.css';
 
@@ -17,13 +16,12 @@ export default function InputNote({ n: note_ }) {
 
     function addSimbol() {
         const simbol = document.getElementById('simbol').value;
-        console.log(simbol);
         setNote(note ? note + simbol : simbol);
 
     }
 
     function limpar() {
-        setNote('');
+        setNote(' ');
     }
 
     return (
@@ -35,7 +33,7 @@ export default function InputNote({ n: note_ }) {
                     <span id="note-selected">{note}</span>
                 </div>
 
-                <ButtonPadrao id='add-note' className='add-note' icon="clear" color="blue" onclick={limpar} ></ButtonPadrao>
+                <IconButton id='add-note' className='add-note' icon="clear" color="blue" onclick={limpar} ></IconButton>
 
             </div>
 
@@ -47,7 +45,7 @@ export default function InputNote({ n: note_ }) {
                     </select>
                 </div>
                 <div className="flex flex-end">
-                    <ButtonPadrao id='add-note' className='add-note dp18' icon="add" color="blue" onclick={addNote} ></ButtonPadrao>
+                    <IconButton id='add-note' className='add-note dp18' icon="add" color="blue" onclick={addNote} ></IconButton>
                 </div>
 
 
@@ -58,7 +56,7 @@ export default function InputNote({ n: note_ }) {
                     </select>
                 </div>
                 <div className="flex flex-end">
-                    <ButtonPadrao id='add-simbol' className='add-simbol' icon="add" color="blue" onclick={addSimbol}></ButtonPadrao>
+                    <IconButton id='add-simbol' className='add-simbol' icon="add" color="blue" onclick={addSimbol}></IconButton>
                 </div>
             </div>
         </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../icon/Icon';
 import './buttonPadrao.css';
 
 export default function ButtonPadrao({ icon, onclick, color, text }) {
