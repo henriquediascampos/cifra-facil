@@ -65,7 +65,7 @@ function formatedCells(cells) {
 
 function lineWhiteSpace(length) {
     return [...Array(length).keys()]
-        .map((i) => " ")
+        .map((i) => "-")
         .reduce((a, b) => {
             return a + b;
         });
