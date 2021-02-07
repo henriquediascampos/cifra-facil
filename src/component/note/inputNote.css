@@ -6,3 +6,24 @@
     color: red;
     font-weight: 700;
 }
+
+.escala i {
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #12366600;
+    text-transform: uppercase;
+}
+
+.escala i:hover {
+    text-shadow: 0px 0px 6px #123766;
+    border: 1px solid #123766;
+}
+
+.escala i:hover {
+    color: rgb(18, 55, 102);
+    text-shadow: 3px -5px 5px rgb(16, 62, 123);
+}

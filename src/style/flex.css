@@ -1,17 +1,4 @@
 
-.row.margin-default > *:not(:last-child) {
-    margin-right: 8px;
-}
-
-.column.margin-default > *:not(:last-child) {
-    margin-bottom: 8px;
-}
-
-/* flex */
-.flex-end {
-    justify-content: flex-end;
-}
-
 .flex {
     display: flex;
 }
@@ -23,6 +10,29 @@
 .column {
     flex-direction: column;
 }
+
+/* flex */
+.flex-end {
+    justify-content: flex-end;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.flex-end {
+    align-self: flex-end;
+}
+
+
+.row.margin-default > *:not(:last-child) {
+    margin-right: 8px;
+}
+
+.column.margin-default > *:not(:last-child) {
+    margin-bottom: 8px;
+}
+
 
 .fullscreen {
     width: 100%;
@@ -37,6 +47,3 @@
     height: 100%;
 }
 
-.flex-end {
-    align-self: flex-end;
-}

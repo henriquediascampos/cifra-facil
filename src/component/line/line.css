@@ -2,8 +2,8 @@
 .line {
     display: flex;
     flex-direction: row;
-    /* margin-bottom: 3px; */
     margin: 0;
+    font-size: 34px;
 }
 
 .line-note {

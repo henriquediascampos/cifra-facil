@@ -3,41 +3,39 @@ import Cell from '../cell/cell';
 import Note from '../note/note';
 import './line.css';
 
-export default function Line({ line }) {
+export default function Line({ line, setLine }) {
     const [currentLine, setCurrentLine] = useState([]);
-    const [atualise, setAtualise] = useState(0);
 
     useEffect(() => {
+        setCurrentLine([]);
         setCurrentLine(line);
-    }, [line, atualise]);
+    }, [line]);
 
-    function handleCell(cell, value) {
+    function handleCell(currentNote, value, width) {
+        currentNote.width = width
         const newLine = {
             index: currentLine.index,
             type: currentLine.type,
-            line: ajusteLine(cell, value)
-        }
+            line: ajusteLine(currentNote, value)
+        };
 
-        setCurrentLine(newLine);
-        // setAtualise(atualise + 1);
+        setLine(newLine);
     }
 
     function ajusteLine(currentNote, value) {
-        value = value || '*';
-        let newLine = []
-        if (currentNote.value !== value) {
-            if (currentNote.value.length < value.length) {
-                newLine = removeElementesSpace(currentNote, value, currentLine.line);
-            } else if (currentNote.value.length > value.length) {
-                newLine = addElementesSpace(currentNote, value, currentLine.line);
+        value = value || ' ';
+        let newLine = [];
+        if (currentNote.value.length < value.length) {
+            newLine = removeElementesSpace(currentNote, value, currentLine.line);
+        } else if (currentNote.value.length > value.length) {
+            newLine = addElementesSpace(currentNote, value, currentLine.line);
 
-            } else if (currentNote.value.length === value.length) {
-                newLine = currentLine.line.reduce((accuValue, currValue) => {
-                    if (currValue.index === currentNote.index)
-                        currValue.value = value;
-                    return [...accuValue, currValue];
-                }, []);
-            }
+        } else if (currentNote.value.length === value.length) {
+            newLine = currentLine.line.reduce((accuValue, currValue) => {
+                if (currValue.index === currentNote.index)
+                    currValue.value = value;
+                return [...accuValue, currValue];
+            }, []);
         }
 
         return newLine;
@@ -61,32 +59,42 @@ export default function Line({ line }) {
 
 
 function removeElementesSpace(currentNote, value, line) {
-    return line.reduce((accuValue, currValue, index) => {
-        if (currValue.index <= currentNote.index || currValue.index > currentNote.index + (value.length - currValue.value.length)) {
+    const valueOld = currentNote.value;
+
+    return line.reduce((accuValue, currValue) => {
+        const menor = currValue.index <= currentNote.index;
+        const maior = currValue.index > currentNote.index + (value.length - valueOld.length)
+        if (menor || maior) {
             if (currValue.index === currentNote.index)
                 currValue.value = value;
             return [...accuValue, currValue];
         } else {
             return accuValue;
         }
-    }, [])
+    }, []).map((cell, index) => {
+        cell.index = index;
+        return cell;
+    });
 }
 
 function addElementesSpace(currentNote, value, line) {
-    return line.reduce((accuValue, currValue, index) => {
+    return line.reduce((accuValue, currValue) => {
         if (currValue.index === currentNote.index) {
+            const newNotes = listNewElement(currValue.value.length - value.length, currentNote.index);
             currValue.value = value;
-            const newNotes = listNewElement(currValue.value.length - value.length, currentNote.index)
-            return [...accuValue, ...newNotes, currValue];
+            return [...accuValue, currValue, ...newNotes,];
         } else {
             return [...accuValue, currValue];
         }
-    }, []);
+    }, []).map((cell, index) => {
+        cell.index = index;
+        return cell;
+    });
 }
 
 
 function listNewElement(length, initinalIndex) {
-    let index = initinalIndex
+    let index = initinalIndex;
     return [...Array(length).keys()]
         .map((i) => createElementeNote(index++));
 }
@@ -95,5 +103,5 @@ function createElementeNote(index) {
     return {
         value: ' ',
         index
-    }
+    };
 }

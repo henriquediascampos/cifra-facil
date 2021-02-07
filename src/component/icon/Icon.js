@@ -1,7 +1,7 @@
 import React from 'react';
-import { ReactComponent as Clear } from "../../assets/clear.svg";
-import { ReactComponent as Save } from "../../assets/save.svg";
-import { ReactComponent as Add } from './../../assets/add.svg';
+import { ReactComponent as Clear } from "../../assets/icon/dp18/clear.svg";
+import { ReactComponent as Save } from "../../assets/icon/dp18/save.svg";
+import { ReactComponent as Add } from './../../assets/icon/dp18/add.svg';
 
 
 

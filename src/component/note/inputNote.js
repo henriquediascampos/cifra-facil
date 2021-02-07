@@ -3,19 +3,19 @@ import IconButton from "../iconButton/iconButton";
 import './inputNote.css';
 
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
-const simbols = ['#', '♭', '7', '11', '5', '/', 'M', 'm', '°']
+const simbols = ['#', '♭', '7', '11', '5', '/', 'M', 'm', '°', '(',')']
 
 
 export default function InputNote({ n: note_ }) {
-    const [note, setNote] = useState(note_);
+    const [note, setNote] = useState('C');
 
-    function addNote() {
-        const n = document.getElementById('note').value;
-        setNote(note ? note + n : n);
+    function addNote(event) {
+        const n = event.currentTarget.innerText;
+        setNote(note ? note + n : n)
     }
 
-    function addSimbol() {
-        const simbol = document.getElementById('simbol').value;
+    function addSimbol(event) {
+        const simbol = event.currentTarget.innerText;
         setNote(note ? note + simbol : simbol);
 
     }
@@ -37,26 +37,19 @@ export default function InputNote({ n: note_ }) {
 
             </div>
 
-            <div className="flex fullscreen row container margin-default">
+            <div className="flex fullscreen column container margin-default">
                 <div className="flex column full-width">
-                    <label>Nota</label>
-                    <select id='note'>
-                        {notes.map((n, index) => <option key={index}>{n}</option>)}
-                    </select>
+                    <label>Escala:</label>
+                    <div className="flex row margin-default escala">
+                        {notes.map((n, index) => <i key={index} onClick={(event) => addNote(event)} >{n}</i>)}
+                    </div>
                 </div>
-                <div className="flex flex-end">
-                    <IconButton id='add-note' className='add-note dp18' icon="add" color="blue" onclick={addNote} ></IconButton>
-                </div>
-
 
                 <div className="flex column full-width">
                     <label>Características</label>
-                    <select id='simbol'>
-                        {simbols.map((note, index) => <option key={index}>{note}</option>)}
-                    </select>
-                </div>
-                <div className="flex flex-end">
-                    <IconButton id='add-simbol' className='add-simbol' icon="add" color="blue" onclick={addSimbol}></IconButton>
+                    <div className="flex row margin-default escala">
+                        {simbols.map((n, index) => <i key={index} onClick={(event) => addSimbol(event)} >{n}</i>)}
+                    </div>
                 </div>
             </div>
         </div>

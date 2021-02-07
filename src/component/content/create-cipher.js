@@ -1,34 +1,61 @@
 import React, { useEffect, useState } from "react";
 import ButtonPadrao from "../buttonPadrao/buttonPadrao";
 import Input from "../input/Input";
-import TextInput from "../text-input/text.input";
 import TextOutput from "../text-output/text.output";
-import './content.css';
+import './create-cipher.css';
 
-export default function Content() {
+const hino =
+`Hosana, Hosana
+Hosana, Hosana, Hosana,
+Hosana, Hosana, Hosana
+Ao Grande El
+
+Yehoshua eu te amo
+Yehoshua eu te adoro
+Yehoshua meu Grande El
+
+Hosana, Hosana, Hosana
+Ao Grande El
+
+O Grande Rei me libertou
+Me concedeu o seu amor
+Por isso eu canto
+Hosanas ao Senhor`;
+
+export default function CreateCipher() {
     const [inputText, setInputText] = useState('');
     const [objectLine, setObjectLine] = useState('');
 
-    function handleReloadOutput(input_) {
-        setInputText(input_);
-    }
+    // function handleReloadOutput(input_) {
+    //     setInputText(input_);
+    // }
 
     useEffect(() => {
         const lines = inputText.split("\n").map(line => line ? line : " ");
         const lineFormat = formatedLine(lines);
+        setObjectLine([]);
         setObjectLine(lineFormat);
     }, [inputText]);
+
+    function setTextOutput(textOutput,) {
+        setObjectLine(textOutput);
+    }
 
     return (
         <div className="content flex fullscreen column margin-default">
             <Input id="title" class="title" placeholder="Insira um título para a música" textLabel="Título" />
             <div>
-                <TextInput inputChange={handleReloadOutput} />
+                <div className="text-input flex column fullscreen">
+                    <label className="bold">Letra da música</label>
+                    <div className="textarea full-height">
+                        <textarea id="textInput" /*onChange={e => handleReloadOutput(e.target.value)}*/ value={inputText} placeholder="Cole aqui a letra da música"></textarea>
+                    </div>
+                </div>
             </div>
             <div id="container">
             </div>
 
-            <TextOutput inputLines={objectLine} />
+            <TextOutput inputLines={objectLine} setTextOutput={setTextOutput} />
             <div className="flex row flex-ed">
                 <ButtonPadrao icon="add" onclick={() => { }} text='salvar'></ButtonPadrao>
             </div>
@@ -65,7 +92,7 @@ function formatedCells(cells) {
 
 function lineWhiteSpace(length) {
     return [...Array(length).keys()]
-        .map((i) => "-")
+        .map((i) => " ")
         .reduce((a, b) => {
             return a + b;
         });
